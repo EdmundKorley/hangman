@@ -22,9 +22,18 @@ How do we abstract away the main components of this game?
 
 - *Hangman* - the containerized game logic that weaves the previous components together to implement a fully functional hangman game.
 
-The Drawing, Keyboard, and Settings components should definetly have a UI layer / view where Words is more of a service and Hangman weaves all the components together to implement a game.
-There are two main ways I immediately think about when tackling this. We could start from the top-down, trying to implement the heavy Hangman component first and then tackling the smaller discrete components afterwards. Or with a bottom-up approach, we could start with discrete independent components (Drawing, Keyboard, Words, Settings) first.
+The _Drawing_, _Keyboard_, and _Settings_ components should definitely have a UI layer / view where _Words_ is more of a service and _Hangman_ weaves all the components together to implement a game. There are two approaches that come to mind when tackling this. We could start from the top-down, trying to implement the heavy Hangman component first and then tackling the smaller discrete components afterwards. Or with a bottom-up approach, we could start with the discrete independent components (Drawing, Keyboard, Words, Settings) first.
 
 I'm leaning towards a bottom-up approach, as it will be easier to test these discrete components as we move along. Before moving on, I want to do a bit of research on if I'm missing anything with these OOP-driven design for a hangman game.
 
 Another set of views and components I need, the *Keys*, which will display the current keys correctly guessed and underscores for the keys to be guessed, and the *Status*, which will display information about the current session such as incorrect guesses made, guesses left, record, and so on.
+
+Tue Feb 14 10:21:13 2017
+
+React seems like a perfect fit for the compartmentalizing of our components. React components can help organize the separation of concerns we stipulated earlier.
+
+With something as simple as this, let's avoid the overhead of Webpack and just load the React libraries from a CDN. Plus there is a probability they will be loaded from a browser's cache given the prevalence of React on the web. Let's see if I can get Babel included as well from a CDN as well so we can write ES6/ES7. Although I'm not sure if you can transpile JavaScript on the client-side, as polyfills may not be enough to implement all the ES6/ES7 features. Interesting, it turns out you can and it is in fact what sites like CodePen and JSFiddle use to turn user-provided ES6/ES7 into browser-complaint ES5. It looks like the `text/babel` and `text/jsx` tags is what lets Babel on the client-side know what to transpile so if you included such a tag with unsupported ES6/ES7 before including Babel from a CDN then it would fail. Perfect, got everything running from a CDN.
+
+While on the topic of tooling, I wonder if there is a way to automatically include all JavaScript files in a folder from a single script tag - trying to mimic the bundling behavior of Webpack on the client side. It seems like it would be too much work and little value added to do that from the client side and would be much easier from the server side. I want to be able to host this on GitHub Pages for free so  I don't have much control on the server side.
+
+Regardless, I feel good about the overall design and approach for this Hangman game. Will probably tackle the Settings component first.

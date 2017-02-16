@@ -1,0 +1,15 @@
+/* Global styling */
+
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
+
+body {
+  font-family: 'Source Serif Pro', serif;
+}
+
+.settings {
+  border: 2px lightblue solid;
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  padding: 40px;
+}

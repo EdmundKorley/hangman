@@ -28,7 +28,7 @@ I'm leaning towards a bottom-up approach, as it will be easier to test these dis
 
 Another set of views and components I need, the *Keys*, which will display the current keys correctly guessed and underscores for the keys to be guessed, and the *Status*, which will display information about the current session such as incorrect guesses made, guesses left, record, and so on.
 
-Tue Feb 14 10:21:13 2017
+Tue Feb 14 11:21:13 2017
 
 React seems like a perfect fit for the compartmentalizing of our components. React components can help organize the separation of concerns we stipulated earlier.
 
@@ -37,3 +37,15 @@ With something as simple as this, let's avoid the overhead of Webpack and just l
 While on the topic of tooling, I wonder if there is a way to automatically include all JavaScript files in a folder from a single script tag - trying to mimic the bundling behavior of Webpack on the client side. It seems like it would be too much work and little value added to do that from the client side and would be much easier from the server side. I want to be able to host this on GitHub Pages for free so  I don't have much control on the server side.
 
 Regardless, I feel good about the overall design and approach for this Hangman game. Will probably tackle the Settings component first.
+
+Wed Feb 15 18:26:18 2017
+
+What are the configurable settings we need for the game? The **difficulty** should correlate to the difficulty settings for the /words API (1-10) so we can use a `<input type="number" min="1" max="10">` for this. As user manipulates these settings, they should not automatically refresh the current session with the new settings. The user should _opt-in_ into new settings with a conspicuous **refresh/reload button**.
+
+Let's hold off on a configurable hangman for now. I may want to explore [CSS polygons]() (used to the wonderful animal depictions [here](http://species-in-pieces.com/#) and [here](http://interviewing.io/employers/)). It would be a challenge for me but I'd be up for it if I have time 😅. Actually lets put a placeholder of a set of radio buttons for now.
+
+Got a very basic settings interface up, ready to go.
+
+#### Why I'm not using a state management solution (Redux)
+
+I want to accumulate the pains for managing state myself and try to understand if there could be a situation so simple where it doesn't bring value added. Also trying to keep dependencies at a minimum 😉. F*** it, lets take it up a notch and decide to use compartmentalized CSS Polygons of animals (🦁, 🐯, 🐊, and 🐍)! Then I would've have definitely learned something new from this.

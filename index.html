@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Hangman 😨</title>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <div id="hangman"></div>
     <!-- Loading Babel and React from a CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.22.1/babel.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js" charset="utf-8"></script>
-    <!-- Testing ES7 exponentiation operator, ** -->
-    <script type="text/babel" data-presets="latest">
-      const here = () => console.log('Hey there', 2 ** 2);
-    </script>
+    <!-- Our scripts for the Hangman game -->
+    <script src="scripts/settings.jsx" type="text/jsx" data-presets="latest,react" charset="utf-8"></script>
+    <script src="scripts/main.jsx" type="text/jsx" data-presets="latest,react" charset="utf-8"></script>
   </body>
 </html>

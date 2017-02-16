@@ -48,4 +48,14 @@ Got a very basic settings interface up, ready to go.
 
 #### Why I'm not using a state management solution (Redux)
 
-I want to accumulate the pains for managing state myself and try to understand if there could be a situation so simple where it doesn't bring value added. Also trying to keep dependencies at a minimum 😉. F*** it, lets take it up a notch and decide to use compartmentalized CSS Polygons of animals (🦁, 🐯, 🐊, and 🐍)! Then I would've have definitely learned something new from this.
+I want to accumulate the pains for managing state myself and try to understand if there could be a situation so simple where it doesn't bring value added. Also trying to keep dependencies at a minimum 😉. Freak it, lets take it up a notch and decide to use compartmentalized CSS Polygons of animals (🦁, 🐯, 🐊, and 🐍)! Then I would've have definitely learned something new from this.
+
+Wed Feb 15 21:37:32 2017
+
+In building our the Words service, tried using the promise-based fetch API to pull down the resource but got a `No 'Access-Control-Allow-Origin' header is present on the requested resource.` Ok so the server that /words API is sitting on doesn't enable CORS (cross-origin resource sharing). I'm not sure if this is an _intentional_ wrench in the problem but lets assume it is, how do I work past this? I can render the words resource as an HTML page with an iFrame. I then have to go in and parse out the words I'm interested. Should I just email and ask if CORS is disabled on that server by mistake? No, let's do it this way for now as switching back to a `fetch` oriented approach won't be that cumbersome if we have to do that. Shit no-CORS on the server-side is affecting the iFrame solution as well. Pick this up in the morning.
+
+Thu Feb 16 11:10:23 2017
+
+Ok, going with a build-time solution. I have some shell scripts that tap /words for the different levels into a .txt file and then a Python script follows up and parses these .txt files in a singular **words.json** file. This should suffice for now but the JSON file is huge (25 MB) so let's cache it in local storage to avoid excessively sending it to the client side. There is probably a more elegant solution to get around CORS and the browser's Same Origin Policy but lets go with this for now.
+
+Stringified JSON exceeds localStorage quota, let's see if breaking the JSON up helps. Nope. Okay, so I know in fits in memory as I'm able to pull it down so let's just keep it there for now, and maybe invest in finding a CORS workaround or emailing them later. Got it working, but I really need to figure out how to get around CORS being turned off on the server as it will make our application more extensible.

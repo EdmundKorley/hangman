@@ -11,5 +11,5 @@ for i in range(1, 11):
     store[i] = words
 
 with open('words.json', 'w') as wordsjson:
-    json.dump(store, wordsjson, ensure_ascii=False, indent=2, separators=(',', ': '))
+    json.dump(store, wordsjson, ensure_ascii=False)
     print "Successfully generated words.json"

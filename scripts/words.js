@@ -45,8 +45,5 @@ class Words {
   }
 }
 
-// A small test of our Words service as is.
-const n = new Words({});
-n.get(10).then(word => {
-  console.log(`Here is my word: ${word}`);
-});
+// An intialization of a global words service
+const wordService = new Words({});

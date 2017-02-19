@@ -42,3 +42,9 @@ body {
 .hangman-key-gray {
   background-color: gray;
 }
+
+.hangman-keys {
+  display: flex;
+  flex-direction: row;
+  font-size: 2em;
+}

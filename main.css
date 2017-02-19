@@ -7,6 +7,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .settings {
@@ -14,4 +15,30 @@ body {
   flex-direction: column;
   max-width: 200px;
   padding: 40px;
+}
+
+.hangman-keyboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 500px;
+}
+
+.hangman-key:hover {
+  background-color: gray;
+}
+
+.hangman-key {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0.75em;
+  margin: 2.5px;
+  background-color: black;
+  color: white;
+}
+
+.hangman-key-gray {
+  background-color: gray;
 }

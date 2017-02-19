@@ -4,10 +4,12 @@
 
 body {
   font-family: 'Source Serif Pro', serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .settings {
-  border: 2px lightblue solid;
   display: flex;
   flex-direction: column;
   max-width: 200px;

@@ -28,18 +28,8 @@ class Settings extends React.Component {
         </label>
         &nbsp;&nbsp;&nbsp;
         <label>
-          <input type="radio" name="shape" value="tiger" />
-          &nbsp;&nbsp;🐯
-        </label>
-        &nbsp;&nbsp;&nbsp;
-        <label>
           <input type="radio" name="shape" value="crocodile" />
           &nbsp;&nbsp;🐊
-        </label>
-        &nbsp;&nbsp;&nbsp;
-        <label>
-          <input type="radio" name="shape" value="snake" />
-          &nbsp;&nbsp;🐍
         </label>
         <br/>
         <br/>

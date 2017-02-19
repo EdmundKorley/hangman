@@ -41,6 +41,7 @@ body {
 
 .hangman-key-gray {
   background-color: gray;
+  cursor: auto;
 }
 
 .hangman-keys {

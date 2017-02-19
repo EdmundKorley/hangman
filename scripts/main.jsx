@@ -29,6 +29,7 @@ class Hangman extends React.Component {
   render() {
     return (<div>
         <Settings signalRefresh={function(arg) { console.log('TO IMPLEMENT: REFRESH STATE', arg); }} />
+        <Status words={this.state.words} keys={this.state.keys} />
         <Drawing animal={crocodile} toShow={6} />
         <Keys words={this.state.words} keys={this.state.keys} />
         <Keyboard keysTouched={this.state.keys} keyListener={this.addKeys}/>

@@ -3,7 +3,14 @@ A simple implementation of the hangman game.
 
 This project is essentially a collection of HTML, CSS, and JS files and to build this project you just need a static files server. It can be any of your choosing but I recommend and show instructions for Python's built-in HTTP server.
 
-First make sure you have Python installed and are in the root of the Hangman directory:
+First spin up a shell and clone the repo down.
+
+```shell
+$ git clone https://github.com/EdmundKorley/hangman.git
+$ cd hangman/
+```
+
+Make sure you have Python installed and are in the root of the Hangman directory:
 
 ```shell
 $ python --version

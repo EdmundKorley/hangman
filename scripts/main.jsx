@@ -62,10 +62,19 @@ class Hangman extends React.Component {
       this.refreshGame({ difficulty: this.state.difficulty, shape: this.state.shape });
     }
     const piecesToDraw = 6 - this.state.guessesLeft;
+    const shape = window[this.state.settings.shape];
+    let hangmanDrawing;
+    switch (this.state.settings.shape) {
+      case 'lion':
+        hangmanDrawing = <Drawing toShow={piecesToDraw} animal={lion} />
+        break;
+      default:
+        hangmanDrawing = <Drawing toShow={piecesToDraw} animal={crocodile} />;
+    }
     return (<div>
         <h1>Hangman 😨</h1>
         <Keys words={this.state.words} keys={this.state.keys} />
-        <Drawing toShow={piecesToDraw} animal={window[this.state.settings.shape]} />
+        {hangmanDrawing}
         <Status guessesLeft={this.state.guessesLeft} />
         <Keyboard keysTouched={this.state.keys} keyListener={this.addKeys}/>
         <Settings signalRefresh={this.refreshGame} />

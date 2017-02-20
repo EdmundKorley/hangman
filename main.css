@@ -48,4 +48,13 @@ body {
   display: flex;
   flex-direction: row;
   font-size: 2em;
+  margin: 1em;
+}
+
+.hangman-status {
+  font-size: 0.9em;
+}
+
+#hangman-shape {
+  min-height: 260px;
 }

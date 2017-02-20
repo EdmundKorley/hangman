@@ -23,7 +23,7 @@ class Settings extends React.Component {
         <strong>Hangman Style</strong>
         <br/>
         <label>
-          <input type="radio" name="shape" value="lion" />
+          <input type="radio" name="shape" value="lion" defaultChecked />
           &nbsp;&nbsp;🦁
         </label>
         &nbsp;&nbsp;&nbsp;

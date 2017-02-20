@@ -35,7 +35,7 @@ class Hangman extends React.Component {
       this.setState(this.state);
     }.bind(this));
   }
-  // Called when the user presses on a key
+  // Called when the user presses on a key, we compute how many guesses are left
   addKeys(letter) {
     this.state.keys.add(letter);
     const correctGuesses = new Set(this.state.words.split('').filter(w => this.state.keys.has(w)));
@@ -45,36 +45,31 @@ class Hangman extends React.Component {
       words: this.state.words,
       guessesLeft: 6 - (this.state.keys.size - correctGuesses.size),
     }
-    this.setState(newState);
-  }
-  render() {
+    // See if they correctly guess every word
+    const allCorrect = this.state.words.split('').every(function(letter) {
+      return this.state.keys.has(letter);
+    }.bind(this));
     // If user has run out of turns,
-    if (this.state.guessesLeft == 0) {
+    if (newState.guessesLeft == -1 || allCorrect) {
       // And won, tell them.
-      if (this.state.words.split('').every(function (letter) {
-        return this.state.keys.has(letter);
-      }.bind(this))) {
+      if (allCorrect) {
         alert(`You won!\n\nVisit https://wordnik.com/words/${this.state.words} for the definition of ${this.state.words}.`);
       } else { // Else, tell them they lost.
         alert(`You lost!\n\nVisit https://wordnik.com/words/${this.state.words} for the definition of ${this.state.words}.`);
       }
       // Then reset the game
-      this.refreshGame({ difficulty: this.state.difficulty, shape: this.state.shape });
+      this.refreshGame({ difficulty: newState.settings.difficulty, shape: newState.settings.shape });
+    } else {
+      this.setState(newState);
     }
+  }
+  render() {
     const piecesToDraw = 6 - this.state.guessesLeft;
     const shape = window[this.state.settings.shape];
-    let hangmanDrawing;
-    switch (this.state.settings.shape) {
-      case 'lion':
-        hangmanDrawing = <Drawing toShow={piecesToDraw} animal={lion} />
-        break;
-      default:
-        hangmanDrawing = <Drawing toShow={piecesToDraw} animal={crocodile} />;
-    }
     return (<div>
         <h1>Hangman 😨</h1>
         <Keys words={this.state.words} keys={this.state.keys} />
-        {hangmanDrawing}
+        <Drawing words={this.state.words} toShow={piecesToDraw} animal={shape} />
         <Status guessesLeft={this.state.guessesLeft} />
         <Keyboard keysTouched={this.state.keys} keyListener={this.addKeys}/>
         <Settings signalRefresh={this.refreshGame} />

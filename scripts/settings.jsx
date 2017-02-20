@@ -7,7 +7,7 @@ class Settings extends React.Component {
     if (hangmanForm) {
       return {
           difficulty: Number(hangmanForm.difficulty.value),
-          shape: hangmanForm.shape.value || "tiger",
+          shape: hangmanForm.shape.value,
       };
     }
   }
